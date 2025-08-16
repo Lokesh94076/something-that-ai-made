@@ -299,6 +299,8 @@ function calculateTotals() {
     
     // Calculate total sales (drawer amounts + online)
     let totalSales = businessData.locations.UP.inDrawer + 
+					businessData.locations.UP.forBuying +
+					businessData.locations.DOWN.forBuying +
                     businessData.locations.DOWN.inDrawer + 
                     businessData.locations.ONLINE.total;
     
