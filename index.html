@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maa Sharada Sabji Mandi - Business Tracker</title>
+    <title>Vegetable Business Tracker</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -143,43 +143,7 @@
             border-radius: 10px;
             margin-top: 15px;
             font-weight: 500;
-        }
-        
-        .demo-credentials {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-        }
-        
-        .demo-credentials h4 {
-            color: #666;
-            margin-bottom: 15px;
-            font-weight: 500;
-        }
-        
-        .demo-grid {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .demo-item {
-            flex: 1;
-            background: #f8f9ff;
-            padding: 15px;
-            border-radius: 10px;
-            font-size: 12px;
-            text-align: center;
-        }
-        
-        .demo-item strong {
-            display: block;
-            margin-bottom: 5px;
-            color: #333;
-        }
-        
-        .demo-item small {
-            color: #667eea;
-            font-weight: 600;
+            display: none;
         }
         
         /* Main App */
@@ -189,6 +153,7 @@
             flex-direction: column;
         }
         
+        /* Header */
         .header {
             background: white;
             box-shadow: 0 2px 20px rgba(0,0,0,0.1);
@@ -196,7 +161,7 @@
         }
         
         .header-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
             display: flex;
@@ -205,7 +170,7 @@
         }
         
         .business-info h1 {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 700;
             color: #333;
             margin-bottom: 5px;
@@ -219,26 +184,27 @@
         .date-info {
             color: #666;
             font-weight: 500;
+            font-size: 16px;
         }
         
-        .user-info {
+        .header-right {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
         }
         
         .role-badge {
-            background: #667eea;
+            background: linear-gradient(135deg, #10b981, #059669);
             color: white;
-            padding: 5px 15px;
+            padding: 8px 16px;
             border-radius: 20px;
             font-size: 12px;
             font-weight: 600;
             text-transform: uppercase;
         }
         
-        .role-badge.admin {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+        .role-badge.viewer {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
         }
         
         .logout-btn {
@@ -250,6 +216,7 @@
             cursor: pointer;
             font-weight: 500;
             transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
         }
         
         .logout-btn:hover {
@@ -258,12 +225,10 @@
         
         /* Dashboard */
         .dashboard {
-            flex: 1;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 30px 20px;
-            display: flex;
-            flex-direction: column;
+            display: grid;
             gap: 30px;
         }
         
@@ -274,8 +239,114 @@
             padding: 30px;
         }
         
-        .section-card h3 {
-            font-size: 20px;
+        .section-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .section-title i {
+            color: #667eea;
+        }
+        
+        /* Admin Edit Mode */
+        .admin-mode .buying-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .admin-mode .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .admin-mode .input-group label {
+            font-weight: 500;
+            color: #333;
+            font-size: 14px;
+        }
+        
+        .admin-mode .input-group input {
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .admin-mode .input-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            background: #f8faff;
+        }
+        
+        .admin-mode .total-input {
+            background: #f0fdf4 !important;
+            color: #166534;
+            font-weight: 700;
+        }
+        
+        /* Viewer Display Mode */
+        .viewer-mode .display-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .viewer-mode .display-item {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            border-left: 5px solid #667eea;
+        }
+        
+        .viewer-mode .display-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        
+        .viewer-mode .display-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+        }
+        
+        .viewer-mode .total-item {
+            border-left-color: #10b981;
+        }
+        
+        /* Location Cards */
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .location-card {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .location-card.up { border-left-color: #3b82f6; }
+        .location-card.down { border-left-color: #10b981; }
+        .location-card.thela { border-left-color: #f59e0b; }
+        .location-card.online { border-left-color: #8b5cf6; }
+        
+        .location-header {
+            font-size: 18px;
             font-weight: 600;
             color: #333;
             margin-bottom: 20px;
@@ -284,107 +355,103 @@
             gap: 10px;
         }
         
-        .section-card h3 i {
-            color: #667eea;
+        .location-inputs {
+            display: grid;
+            gap: 15px;
         }
         
-        /* Sales Grid */
-        .sales-grid {
+        .location-inputs.online-only {
+            grid-template-columns: 1fr;
+        }
+        
+        /* Viewer Location Cards */
+        .viewer-mode .location-values {
+            display: grid;
+            gap: 12px;
+        }
+        
+        .viewer-mode .value-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 8px;
+        }
+        
+        .viewer-mode .value-label {
+            font-weight: 500;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .viewer-mode .value-amount {
+            font-weight: 700;
+            color: #333;
+            font-size: 16px;
+        }
+        
+        /* Summary Cards */
+        .summary-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
+            margin-top: 30px;
         }
         
-        .sale-item {
-            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 5px solid #667eea;
-            transition: transform 0.3s;
-        }
-        
-        .sale-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .sale-item.expenses {
-            border-left-color: #ef4444;
-            background: linear-gradient(135deg, #fef2f2, #fee2e2);
-        }
-        
-        .sale-item.drawer {
-            border-left-color: #10b981;
-            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
-        }
-        
-        .label {
-            display: block;
-            font-size: 14px;
-            font-weight: 500;
-            color: #666;
-            margin-bottom: 8px;
-        }
-        
-        .amount {
-            font-size: 24px;
-            font-weight: 700;
-            color: #333;
-        }
-        
-        /* Totals */
-        .totals-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        
-        .total-card {
+        .summary-card {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
-            padding: 30px;
-            border-radius: 20px;
+            padding: 25px;
+            border-radius: 15px;
             text-align: center;
-            transition: transform 0.3s;
         }
         
-        .total-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .total-card i {
-            font-size: 40px;
-            margin-bottom: 15px;
-            opacity: 0.8;
-        }
-        
-        .total-label {
-            display: block;
-            font-size: 14px;
-            margin-bottom: 5px;
-            opacity: 0.9;
-        }
-        
-        .total-value {
-            font-size: 28px;
-            font-weight: 700;
-        }
-        
-        .total-card.profit {
+        .summary-card.profit {
             background: linear-gradient(135deg, #10b981, #059669);
         }
         
+        .summary-card.expenses {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+        }
+        
+        .summary-card.cash-given {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+        
+        .summary-label {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+        
+        .summary-value {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
         /* Settings */
+        .settings-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: #f8faff;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        
         .toggle-label {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
             cursor: pointer;
             font-weight: 500;
         }
         
         .toggle-slider {
-            width: 60px;
-            height: 30px;
+            width: 50px;
+            height: 25px;
             background: #ddd;
             border-radius: 15px;
             position: relative;
@@ -394,8 +461,8 @@
         .toggle-slider::before {
             content: '';
             position: absolute;
-            width: 26px;
-            height: 26px;
+            width: 21px;
+            height: 21px;
             background: white;
             border-radius: 50%;
             top: 2px;
@@ -408,89 +475,137 @@
         }
         
         input[type="checkbox"]:checked + .toggle-slider::before {
-            transform: translateX(30px);
+            transform: translateX(25px);
         }
         
         input[type="checkbox"] {
             display: none;
         }
         
-        /* Admin Form */
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
+        /* Viewer Settings Display */
+        .viewer-mode .setting-display {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 20px;
+            background: #f8faff;
+            border-radius: 12px;
+            margin-bottom: 20px;
         }
         
-        .form-group label {
-            display: block;
-            font-weight: 500;
-            color: #333;
-            margin-bottom: 8px;
-        }
-        
-        .form-group input {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 16px;
-            transition: border-color 0.3s;
-        }
-        
-        .form-group input:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-        
-        .update-btn {
-            background: linear-gradient(135deg, #10b981, #059669);
+        .viewer-mode .setting-status {
+            background: #10b981;
             color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .viewer-mode .setting-status.off {
+            background: #ef4444;
+        }
+        
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 12px 25px;
             border: none;
-            padding: 15px 30px;
             border-radius: 10px;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            transition: transform 0.3s;
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin: 0 auto;
+            gap: 8px;
+            transition: transform 0.3s;
+            font-family: 'Poppins', sans-serif;
         }
         
-        .update-btn:hover {
+        .btn:hover {
             transform: translateY(-2px);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+        }
+        
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            transform: translateX(400px);
+            transition: transform 0.3s;
+            z-index: 9999;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .notification.success {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+        
+        .notification.info {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        }
+        
+        .notification.error {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
         }
         
         /* Responsive */
         @media (max-width: 768px) {
+            .dashboard {
+                padding: 20px 15px;
+                gap: 20px;
+            }
+            
+            .admin-mode .buying-section,
+            .viewer-mode .display-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .locations-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .summary-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
             .header-content {
                 flex-direction: column;
                 gap: 15px;
                 text-align: center;
             }
             
-            .dashboard {
-                padding: 20px 15px;
-                gap: 20px;
-            }
-            
-            .section-card {
-                padding: 20px;
-            }
-            
-            .sales-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .totals-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .form-grid {
-                grid-template-columns: 1fr;
+            .header-right {
+                flex-direction: column;
+                gap: 10px;
             }
         }
     </style>
@@ -507,13 +622,13 @@
         <div class="login-card">
             <div class="login-header">
                 <i class="fas fa-leaf"></i>
-                <h1>Maa Sharada Sabji Mandi</h1>
-                <h2>Business Tracker</h2>
+                <h1>Vegetable Business</h1>
+                <h2>Secure Access Required</h2>
             </div>
             <form id="login-form" class="login-form">
                 <div class="form-group">
-                    <label for="email">Username</label>
-                    <input type="text" id="email" required>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
@@ -523,22 +638,7 @@
                     <i class="fas fa-sign-in-alt"></i> Login
                 </button>
             </form>
-            <div id="login-error" style="display: none;"></div>
-            <div class="demo-credentials">
-                <h4>Login Accounts</h4>
-                <div class="demo-grid">
-                    <div class="demo-item">
-                        <strong>Admin</strong><br>
-                        me<br>
-                        <small>123</small>
-                    </div>
-                    <div class="demo-item">
-                        <strong>User</strong><br>
-                        123<br>
-                        <small>123</small>
-                    </div>
-                </div>
-            </div>
+            <div id="login-error"></div>
         </div>
     </div>
 
@@ -548,15 +648,14 @@
         <header class="header">
             <div class="header-content">
                 <div class="business-info">
-                    <h1><i class="fas fa-leaf"></i> Maa Sharada Sabji Mandi</h1>
+                    <h1><i class="fas fa-leaf"></i> Vegetable Business Tracker</h1>
                     <div class="date-info">
                         <i class="fas fa-calendar-day"></i>
                         <span id="current-date"></span>
                     </div>
                 </div>
-                <div class="user-info">
-                    <span id="user-role-badge" class="role-badge"></span>
-                    <span id="user-name"></span>
+                <div class="header-right">
+                    <span id="role-badge" class="role-badge"></span>
                     <button id="logout-btn" class="logout-btn">
                         <i class="fas fa-sign-out-alt"></i> Logout
                     </button>
@@ -566,114 +665,124 @@
 
         <!-- Main Dashboard -->
         <main class="dashboard">
-            <!-- Sales Display -->
+            <!-- Buying Section -->
             <section class="section-card">
-                <h3><i class="fas fa-chart-bar"></i> Today's Business</h3>
-                <div class="sales-grid">
-                    <div class="sale-item">
-                        <span class="label">UP Sales</span>
-                        <span class="amount" id="up-sale">₹0</span>
+                <h2 class="section-title">
+                    <i class="fas fa-shopping-cart"></i> Buying (Vegetables + Fruits)
+                </h2>
+                
+                <!-- Admin Mode -->
+                <div class="admin-mode">
+                    <div class="buying-section admin-only">
+                        <div class="input-group">
+                            <label for="veg-input">Vegetables (₹)</label>
+                            <input type="number" id="veg-input" step="0.01" min="0" value="0">
+                        </div>
+                        <div class="input-group">
+                            <label for="fruit-input">Fruits (₹)</label>
+                            <input type="number" id="fruit-input" step="0.01" min="0" value="0">
+                        </div>
+                        <div class="input-group">
+                            <label for="total-buying">Total Buying (₹)</label>
+                            <input type="number" id="total-buying" class="total-input" readonly>
+                        </div>
                     </div>
-                    <div class="sale-item">
-                        <span class="label">DOWN Sales</span>
-                        <span class="amount" id="down-sale">₹0</span>
-                    </div>
-                    <div class="sale-item">
-                        <span class="label">THELA Sales</span>
-                        <span class="amount" id="thela-sale">₹0</span>
-                    </div>
-                    <div class="sale-item">
-                        <span class="label">ONLINE Sales</span>
-                        <span class="amount" id="online-sale">₹0</span>
-                    </div>
-                    <div class="sale-item expenses">
-                        <span class="label">Total Expenses</span>
-                        <span class="amount" id="total-expenses-display">₹0</span>
-                    </div>
-                    <div class="sale-item drawer">
-                        <span class="label">Cash in Drawer</span>
-                        <span class="amount" id="cash-drawer-display">₹0</span>
+                </div>
+                
+                <!-- Viewer Mode -->
+                <div class="viewer-mode">
+                    <div class="display-section viewer-only">
+                        <div class="display-item">
+                            <div class="display-label">Vegetables</div>
+                            <div class="display-value" id="veg-display">₹0</div>
+                        </div>
+                        <div class="display-item">
+                            <div class="display-label">Fruits</div>
+                            <div class="display-value" id="fruit-display">₹0</div>
+                        </div>
+                        <div class="display-item total-item">
+                            <div class="display-label">Total Buying</div>
+                            <div class="display-value" id="total-buying-display">₹0</div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Settings (Admin Only) -->
-            <section class="section-card admin-only">
-                <h3><i class="fas fa-cog"></i> Settings</h3>
-                <label class="toggle-label">
-                    <input type="checkbox" id="thela-toggle">
-                    <span class="toggle-slider"></span>
-                    Include THELA in Total Sales
-                </label>
-            </section>
-
-            <!-- Totals -->
-            <section class="totals-grid">
-                <div class="total-card">
-                    <i class="fas fa-rupee-sign"></i>
-                    <span class="total-label">Total Sales</span>
-                    <span class="total-value" id="total-sales">₹0</span>
-                </div>
-                <div class="total-card profit">
-                    <i class="fas fa-coins"></i>
-                    <span class="total-label">Net Profit</span>
-                    <span class="total-value" id="net-profit">₹0</span>
+            <!-- Location Sales Section -->
+            <section class="section-card">
+                <h2 class="section-title">
+                    <i class="fas fa-store"></i> Sales by Location
+                </h2>
+                
+                <div class="locations-grid" id="locations-container">
+                    <!-- Locations will be populated by JavaScript -->
                 </div>
             </section>
 
-            <!-- Admin Controls -->
-            <section class="section-card admin-only">
-                <h3><i class="fas fa-edit"></i> Update Data</h3>
-                <form id="update-data-form">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="up-input">UP Sales (₹)</label>
-                            <input type="number" id="up-input" step="0.01" min="0" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="down-input">DOWN Sales (₹)</label>
-                            <input type="number" id="down-input" step="0.01" min="0" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="thela-input">THELA Sales (₹)</label>
-                            <input type="number" id="thela-input" step="0.01" min="0" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="online-input">ONLINE Sales (₹)</label>
-                            <input type="number" id="online-input" step="0.01" min="0" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="expenses-input">Total Expenses (₹)</label>
-                            <input type="number" id="expenses-input" step="0.01" min="0" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="drawer-input">Cash in Drawer (₹)</label>
-                            <input type="number" id="drawer-input" step="0.01" min="0" required>
-                        </div>
+            <!-- Settings -->
+            <section class="section-card">
+                <h2 class="section-title">
+                    <i class="fas fa-cog"></i> Settings
+                </h2>
+                
+                <!-- Admin Settings -->
+                <div class="admin-only">
+                    <div class="settings-section">
+                        <label class="toggle-label">
+                            <input type="checkbox" id="thela-toggle">
+                            <span class="toggle-slider"></span>
+                            Include THELA in Total Sales Calculation
+                        </label>
                     </div>
-                    <button type="submit" class="update-btn">
-                        <i class="fas fa-save"></i> Update All Data
+                </div>
+                
+                <!-- Viewer Settings Display -->
+                <div class="viewer-only">
+                    <div class="setting-display">
+                        <span>THELA Sales Calculation:</span>
+                        <span class="setting-status" id="thela-status">OFF</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Summary Totals -->
+            <section class="section-card">
+                <h2 class="section-title">
+                    <i class="fas fa-calculator"></i> Business Summary
+                </h2>
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <div class="summary-label">Total Sales</div>
+                        <div class="summary-value" id="total-sales">₹0</div>
+                    </div>
+                    <div class="summary-card cash-given">
+                        <div class="summary-label">Total Cash Given</div>
+                        <div class="summary-value" id="total-cash-given">₹0</div>
+                    </div>
+                    <div class="summary-card expenses">
+                        <div class="summary-label">Total Expenses</div>
+                        <div class="summary-value" id="total-expenses">₹0</div>
+                    </div>
+                    <div class="summary-card profit">
+                        <div class="summary-label">Net Profit</div>
+                        <div class="summary-value" id="net-profit">₹0</div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-primary admin-only" id="save-data">
+                        <i class="fas fa-save"></i> Save Data
                     </button>
-                </form>
-            </section>
-			            <!-- Historical Data Section -->
-            <section class="section-card">
-                <h3><i class="fas fa-history"></i> Historical Data</h3>
-                <div class="history-controls">
-                    <button id="export-history" class="export-btn">
+                    <button class="btn btn-secondary admin-only" id="export-data">
                         <i class="fas fa-download"></i> Export History
                     </button>
-                    <span class="history-count">Total Records: <span id="record-count">0</span></span>
-                </div>
-                <div id="history-list" class="history-container">
-                    <div class="no-history">No historical data available</div>
                 </div>
             </section>
-
-            <!-- Notification -->
-            <div id="notification" class="notification"></div>
         </main>
     </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
 
     <script src="app.js"></script>
 </body>
